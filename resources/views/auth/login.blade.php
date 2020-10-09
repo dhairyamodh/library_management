@@ -60,10 +60,12 @@
                     <div class="section">
                       <a href="#" class="button btn-social facebook span-left"> <span><i
                             class="fa fa-facebook"></i></span> Facebook </a>
-                      <a href="#" class="button btn-social twitter span-left"> <span><i
-                            class="fa fa-twitter"></i></span> Twitter </a>
+                      {{-- <a href="#" class="button btn-social twitter span-left"> <span><i
+                            class="fa fa-twitter"></i></span> Twitter </a> --}}
                       <a href="#" class="button btn-social googleplus span-left"> <span><i
                             class="fa fa-google-plus"></i></span> Google+ </a>
+                            <a href="#" class="button btn-social apple span-left"> <span><i
+                              class="fa fa-apple"></i></span> Apple </a>
                     </div><!-- end section -->
 
                     <div class="spacer-t30 spacer-b30">

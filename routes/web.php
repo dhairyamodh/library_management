@@ -21,3 +21,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/profile', 'ProfileContoller@index')->name('profile');
+Route::put('/save-profile/{id}', 'ProfileContoller@save');

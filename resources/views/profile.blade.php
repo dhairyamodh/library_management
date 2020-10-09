@@ -36,8 +36,23 @@
                     <div class="smart-forms smart-container wrap-3">
 
                         <h3>Edit Profile</h3>
+                        @if (count($errors) > 0)
+                        @php
+                            echo var_dump($errors->all());
+                        @endphp 
+         <div class = "alert alert-danger">
+            <ul>
+               
+            </ul>
+         </div>
+      @endif
+                       @if ($errors->has('name'))
+                           {{ $errors->first('name') }}
+                       @endif
 
-                        <form method="post" action="/" id="account">
+                        <form method="post" action="/save-profile/{{Auth::user()->id}}" id="account">
+                            {{ csrf_field() }}
+                            {{ method_field('PUT') }}
                             <div class="form-body">
 
                                 <label for="names" class="field-label">Your names</label>
@@ -45,7 +60,7 @@
 
                                     <div class="section">
                                         <label class="field prepend-icon">
-                                            <input type="text" name="firstname" id="firstname" class="gui-input"
+                                            <input type="text" name="name" id="firstname" class="gui-input"
                                                 placeholder="First name..." value="{{Auth::user()->name}}">
                                             <span class="field-icon"><i class="fa fa-user"></i></span>
                                         </label>
@@ -64,8 +79,8 @@
                                     <div class="section colm colm6">
                                         <label for="mobile" class="field-label">Mobile phone </label>
                                         <label class="field prepend-icon">
-                                            <input type="tel" name="mobile" id="mobile" class="gui-input"
-                                                placeholder="+256">
+                                            <input type="tel" name="phone" id="mobile" class="gui-input"
+                                                placeholder="+256" value="{{Auth::user()->phone}}">
                                             <span class="field-icon"><i class="fa fa-phone-square"></i></span>
                                         </label>
                                     </div>
@@ -73,15 +88,15 @@
                                 <div class="section">
                                     <label for="mobile" class="field-label">Address</label>
                                     <label class="field prepend-icon">
-                                        <textarea class="gui-textarea" id="sendermessage" name="sendermessage"
-                                            placeholder="Enter address"></textarea>
+                                        <textarea class="gui-textarea" id="sendermessage" name="address"
+                                            placeholder="Enter address">{{Auth::user()->address}}</textarea>
                                         <span class="field-icon"><i class="fa fa-map-marker"></i></span>
                                     </label>
                                 </div>
 
                             </div><!-- end .form-body section -->
                             <div class="form-footer">
-                                <button type="submit" class="button btn-primary">Save Changes</button>
+                                <button type="button" class="button btn-primary">Save Changes</button>
                             </div><!-- end .form-footer section -->
                         </form>
 

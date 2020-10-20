@@ -214,7 +214,7 @@ body {
 /* @form body + footer 
 ------------------------------------------------------------------- */
 .smart-forms .form-body {
-  padding: 40px 30px;
+  padding: 0;
   padding-bottom: 20px;
 }
 .smart-forms .form-footer {
@@ -268,6 +268,9 @@ body {
 .smart-forms input:focus:-ms-input-placeholder,
 .smart-forms textarea:focus:-ms-input-placeholder {
   color: #d6dbe0;
+}
+.is-invalid {
+  border-color: #f43819;
 }
 
 /* @element general styling :: fonts :: adjust accordingly
@@ -603,12 +606,15 @@ body {
 .smart-forms .select-multiple select:focus {
   color: #3c3c3c;
   background: #fff;
-  border: 1px solid #fd602c;
-  -webkit-box-shadow: 0px 0px 3px #fd602c inset;
-  -moz-box-shadow: 0px 0px 3px #fd602c inset;
-  -o-box-shadow: 0px 0px 3px #fd602c inset;
-  box-shadow: 0px 0px 3px #fd602c inset;
+  border: 1px solid #6bc868;
   outline: none;
+}
+
+.smart-forms .gui-input.is-invalid,
+.smart-forms .gui-textarea.is-invalid,
+.smart-forms .select > select.is-invalid,
+.smart-forms .select-multiple select.is-invalid {
+  border: 1px solid #f43819;
 }
 
 .smart-forms .select > select:focus {
@@ -880,14 +886,17 @@ body {
 
 /* @buttons 
 ----------------------------------------------------- */
+.smart-forms .social-btn,
 .smart-forms .button {
   border: 0;
   height: 42px;
+  width: auto;
   color: #243140;
   line-height: 1;
   font-size: 15px;
+  padding: 0 20px;
   cursor: pointer;
-  padding: 0 50px;
+  margin-right: 10px;
   text-align: center;
   vertical-align: top;
   background: #dbdbdb;
@@ -912,6 +921,12 @@ body {
   line-height: 42px;
   text-decoration: none;
 }
+.smart-forms a.button .hide-text {
+  position: relative;
+  width: 100%;
+  pointer-events: none;
+  background: none;
+}
 .smart-forms .button i {
   font-size: 14px;
 }
@@ -926,17 +941,18 @@ body {
 }
 .smart-forms .btn-primary:hover,
 .smart-forms .btn-primary:focus {
-  background-color: #6bc868;
+  background-color: #d34f23;
 }
 .smart-forms .btn-primary:active {
-  background-color: #3c9b39;
+  background-color: #d34f23;
 }
 .smart-forms .btn-primary,
 .smart-forms .btn-primary:hover,
 .smart-forms .btn-primary:focus,
 .smart-forms .btn-primary:active {
   color: #fff;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.08);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
 }
 
 /* button colors
@@ -1368,7 +1384,7 @@ body {
 }
 .smart-forms .apple:hover,
 .smart-forms .apple:focus {
-  background-color: #7d8286;
+  background-color: #626669;
 }
 .smart-forms .span-left {
   padding-left: 52px;
@@ -1406,9 +1422,6 @@ body {
 }
 .smart-forms .apple span {
   background-color: #7d8286;
-}
-.smart-forms .apple span:hover {
-  background-color: #a3aaae;
 }
 
 /* @rating and review star widget :: with hover back afetr selecting
@@ -3302,6 +3315,14 @@ body {
   }
   .smart-forms .align-right {
     text-align: left;
+  }
+  .smart-forms .social-btn {
+    height: 42px;
+    width: 42px;
+    padding: 0 0px;
+  }
+  .smart-forms .social-btn .hide-text {
+    display: none;
   }
 }
 

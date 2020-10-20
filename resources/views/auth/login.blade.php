@@ -6,7 +6,6 @@
 
 
 @section('link')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha256-ENFZrbVzylNbgnXx0n3I1g//2WeO47XxoPe0vkp3NC8=" crossorigin="anonymous" />
 @endsection
 
 
@@ -47,9 +46,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-7 col-centered">
-            <div class="text-box padding-4 border">
+            <div class="text-box padding-3 border">
               <div class="smart-forms smart-container wrap-3">
-                <h4 class="uppercase">Login Form</h4>
                 <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
                   <div>
@@ -57,15 +55,15 @@
                       <div class="tagline"><span>Sign in With </span></div><!-- .tagline -->
                     </div>
 
-                    <div class="section">
-                      <a href="#" class="button btn-social facebook span-left"> <span><i
-                            class="fa fa-facebook"></i></span> Facebook </a>
-                      {{-- <a href="#" class="button btn-social twitter span-left"> <span><i
-                            class="fa fa-twitter"></i></span> Twitter </a> --}}
-                      <a href="#" class="button btn-social googleplus span-left"> <span><i
-                            class="fa fa-google-plus"></i></span> Google+ </a>
-                            <a href="#" class="button btn-social apple span-left"> <span><i
-                              class="fa fa-apple"></i></span> Apple </a>
+                    <div class="section " style="display: flex; justify-content:center;">
+                      <a href="{{ url('/login/facebook') }}" class="button social-btn btn-social facebook span-left"> <span><i
+                            class="fa fa-facebook"></i></span><span class="hide-text">Facebook</span> </a>
+                      <a href="{{ url('/login/twitter') }}" class="button social-btn btn-social twitter span-left"> <span><i
+                            class="fa fa-twitter"></i></span> <span class="hide-text">Twitter</span> </a>
+                      <a href="/login/google" class="button social-btn btn-social googleplus span-left"> <span><i
+                            class="fa fa-google"></i></span><span class="hide-text">Google</span></a>
+                            <a href="#" class="button social-btn btn-social apple span-left"> <span><i
+                              class="fa fa-apple"></i></span><span class="hide-text">Apple</span></a>
                     </div><!-- end section -->
 
                     <div class="spacer-t30 spacer-b30">
@@ -73,33 +71,33 @@
                     </div>
 
                     <div class="section">
-                        <div class="{{ $errors->has('email') ? ' has-error' : '' }}">
+                        
                       <label class="field prepend-icon">
-                        <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus class="gui-input" placeholder="Enter email">
+                        <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus class="gui-input {{ $errors->has('email') ? 'is-invalid' : '' }}" placeholder="Enter email">
                         <span class="field-icon"><i class="fa fa-user"></i></span>
-                        @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                        
+                      </label>
+                      @if ($errors->has('email'))
+                        <div style="color: #f43819"><small>{{ $errors->first('email') }}</small></div>
                                     </span>
                                 @endif
-                      </label>
                     </div><!-- end section -->
-                    </div>
+                    
 
-                    <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
+                    
                         <div class="section">
                             <label class="field prepend-icon">
-                              <input id="password" type="password" name="password" required class="gui-input"
+                              <input id="password" type="password" name="password" required class="gui-input {{ $errors->has('password') ? 'is-invalid' : '' }}"
                                 placeholder="Enter password">
                               <span class="field-icon"><i class="fa fa-lock"></i></span>
-                              @if ($errors->has('password'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('password') }}</strong>
+                              
+                            </label>
+                            @if ($errors->has('password'))
+                              <div style="color: #f43819"><small>{{ $errors->first('password') }}</small></div>
                                 </span>
                             @endif
-                            </label>
                           </div><!-- end section -->
-                    </div>
+                    
                     <div class="section">
                         <div class="row">
                           <div class="col-md-6">

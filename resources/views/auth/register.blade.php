@@ -49,7 +49,6 @@
 
             <div class="smart-forms smart-container wrap-3">
 
-              <h3>Registration Form</h3>
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
@@ -57,23 +56,16 @@
 
                             <label for="names" class="field-label">Your names</label>
                             
-                                <div class="{{ $errors->has('name') ? ' has-error' : '' }}">
                               <div class="section">
                                 <label class="field prepend-icon">
-                                  <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus class="gui-input"
+                                  <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus class="gui-input {{ $errors->has('name') ? 'is-invalid' : '' }}"
                                     placeholder="First name...">
                                   <span class="field-icon"><i class="fa fa-user"></i></span>
-                                  @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
                                 </label>
+                                @if ($errors->has('name'))
+                                  <div style="color: #f43819"><small>{{ $errors->first('name') }}</small></div>
+                                @endif
                               </div><!-- end section -->
-        
-                                
-        
-                            </div><!-- end frm-row section -->
         
                             <!-- <div class="section">
                               <label for="username" class="field-label">Choose your username </label>
@@ -85,34 +77,28 @@
                                 <label for="username" class="button">.envato.com</label>
                               </div>
                             </div> -->
-                            <div class="{{ $errors->has('email') ? ' has-error' : '' }}">
                             <div class="section">
                               <label for="email" class="field-label">Your email address</label>
                               <label class="field prepend-icon">
-                                <input id="email" type="email" name="email" value="{{ old('email') }}" required class="gui-input"
+                                <input id="email" type="email" name="email" value="{{ old('email') }}" required class="gui-input {{ $errors->has('email') ? 'is-invalid' : '' }}"
                                   placeholder="example@domain.com...">
                                 <span class="field-icon"><i class="fa fa-envelope"></i></span>
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
                               </label>
-                            </div>
+                              @if ($errors->has('email'))
+                                <div style="color: #f43819"><small>{{ $errors->first('email') }}</small></div>
+                                @endif
                             </div>
         
-                            <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <div class="">
                             <div class="section">
                               <label for="password" class="field-label">Create a password</label>
                               <label class="field prepend-icon">
-                                <input id="password" type="password" name="password" required class="gui-input" placeholder="Enter password">
+                                <input id="password" type="password" name="password" required class="gui-input {{ $errors->has('password') ? 'is-invalid' : '' }}" placeholder="Enter password">
                                 <span class="field-icon"><i class="fa fa-lock"></i></span>
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
                               </label>
+                              @if ($errors->has('password'))
+                              <div style="color: #f43819"><small>{{ $errors->first('password') }}</small></div>
+                                @endif
                             </div>
                             </div>
         

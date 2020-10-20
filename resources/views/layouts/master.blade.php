@@ -33,16 +33,15 @@
 <![endif]-->
 
   <!-- stylesheets -->
-  <link rel="stylesheet" media="screen" href="js/bootstrap/bootstrap.min.css" type="text/css" />
-  <link rel="stylesheet" href="js/mainmenu/menu.css" type="text/css" />
-  <link rel="stylesheet" href="css/default.css" type="text/css" />
-  <link rel="stylesheet" href="css/layouts.css" type="text/css" />
-  <link rel="stylesheet" href="css/shortcodes.css" type="text/css" />
-  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" media="screen" href="css/responsive-leyouts.css" type="text/css" />
-  <link rel="stylesheet" type="text/css" href="css/Simple-Line-Icons-Webfont/simple-line-icons.css" media="screen" />
-  <link rel="stylesheet" href="css/et-line-font/et-line-font.css">
-  <link rel="stylesheet" type="text/css" href="js/smart-forms/smart-forms.css">
+  <link rel="stylesheet" media="screen" href="../../js/bootstrap/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../js/mainmenu/menu.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/layouts.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/shortcodes.css" type="text/css" />
+  <link rel="stylesheet" media="screen" href="../../css/responsive-leyouts.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="../../css/Simple-Line-Icons-Webfont/simple-line-icons.css" media="screen" />
+  <link rel="stylesheet" href="../../css/et-line-font/et-line-font.css">
+  <link rel="stylesheet" type="text/css" href="../../js/smart-forms/smart-forms.css">
   @yield('links')
 
 </head>
@@ -84,20 +83,20 @@
 
     <div id="header">
       <div class="container">
-        <div class="navbar navbar-default yamm dark">
+        <div class="navbar navbar-default yamm">
           <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid"
               class="navbar-toggle two three"><span class="icon-bar"></span><span class="icon-bar"></span><span
                 class="icon-bar"></span></button>
-            <a href="/" class="navbar-brand"><img src="images/logo.png" alt="" /></a> </div>
+            <a href="/" class="navbar-brand" style="padding: 5px"><img src="images/logo.png" alt="" /></a> </div>
           <div id="navbar-collapse-grid" class="navbar-collapse collapse pull-right">
             <ul class="nav navbar-nav">
-              <li class="dropdown {{ '/' == request()->path() ? 'active' : ''}}"> <a href="/">Home</a></li>
+              <li class="dropdown {{ '/' == request()->path() || 'home' == request()->path() ? 'active' : ''}}"> <a href="/">Home</a></li>
               <li class="dropdown {{ 'about-us' == request()->path() ? 'active' : ''}}"><a href="/about-us">About Us</a></li>
               <li class="dropdown {{ 'service' == request()->path() ? 'active' : ''}}"><a href="/service">Service</a></li>
               <li class="dropdown {{ 'contact-us' == request()->path() ? 'active' : ''}}"><a href="/contact-us">Contact US</a></li>
               @if (!Auth::guest())
-              <li class="dropdown"><a href="#">{{ Auth::user()->name }}</a>
+              <li class="dropdown {{ 'profile' == request()->path() ? 'active' : ''}}"><a href="#">{{ Auth::user()->name }}</a>
                 <ul class="dropdown-menu" role="menu">
                     <li class="{{ 'profile' == request()->path() ? 'active' : ''}}"><a href="/profile"> Profile</a> </li>
                     <li><a href="{{ route('logout') }}"
@@ -442,14 +441,14 @@
 
   <!-- ========== Js Files ========== -->
 
-  <script type="text/javascript" src="js/universal/jquery.js"></script>
-  <script src="js/bootstrap/bootstrap.min.js" type="text/javascript"></script>
-  <script src="js/mainmenu/customeUI.js"></script>
-  <script src="js/mainmenu/jquery.sticky.js"></script>
-  <script src="js/scrolltotop/totop.js"></script>
-  <script type="text/javascript" src="js/cubeportfolio/jquery.cubeportfolio.min.js"></script>
-  <script type="text/javascript" src="js/cubeportfolio/main.js"></script>
-  <script src="js/scripts/functions.js" type="text/javascript"></script>
+  <script type="text/javascript" src="../../js/universal/jquery.js"></script>
+  <script src="../../js/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../../js/mainmenu/customeUI.js"></script>
+  <script src="../../js/mainmenu/jquery.sticky.js"></script>
+  <script src="../../js/scrolltotop/totop.js"></script>
+  <script type="text/javascript" src="../../js/cubeportfolio/jquery.cubeportfolio.min.js"></script>
+  <script type="text/javascript" src="../../js/cubeportfolio/main.js"></script>
+  <script src="../../js/scripts/functions.js" type="text/javascript"></script>
   @yield('scripts')
 
 </body>

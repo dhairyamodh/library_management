@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Library Management | Register
+    Library Management | Home
 @endsection
 
 

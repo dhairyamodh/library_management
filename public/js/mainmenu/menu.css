@@ -26,11 +26,19 @@
 /* =========== Menu ============= */
 
 .navbar-brand {
+  width: 60%;
   float: left;
   font-size: 18px;
-  height: 50px;
-  line-height: 20px;
-  padding: 21px 0 0;
+}
+.navbar-brand img {
+  width: 50%;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+  background: none;
+  border-bottom: 3px solid #fd602c;
+  color: #fd602c;
 }
 .navbar-default {
   background: none;
@@ -47,8 +55,9 @@ ul.nav > li > a:hover.active {
   color: #fd602c;
 }
 .navbar-nav > li > a {
-  padding-bottom: 30px;
-  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
 }
 .dropdown-submenu {
@@ -82,8 +91,8 @@ ul.nav > li > a:hover.active {
   margin-top: -2px;
 }
 
-.navbar-nav > li > .dropdown-menu li.active {
-  background-color: #fd602c !important;
+.navbar-nav > li > .dropdown-menu li.active a {
+  color: #fd602c !important;
 }
 
 .navbar-nav > li > .dropdown-menu.align-1 {
@@ -751,19 +760,18 @@ ul.nav.red-3 > li > a:hover.active {
   .navbar-default .navbar-toggle.two {
     border: none;
   }
+  .navbar-default .navbar-toggle.three .icon-bar,
   .navbar-default .navbar-toggle.three:focus .icon-bar,
   .navbar-default .navbar-toggle.three:hover .icon-bar {
-    background-color: #161616;
+    background-color: #eb574c;
   }
   .navbar-default .navbar-toggle.three:focus,
   .navbar-default .navbar-toggle.three:hover {
     background: none;
   }
   .navbar-brand img {
-    width: 80%;
-  }
-  .navbar-brand {
-    padding: 12px 0 0;
+    margin-left: 15px;
+    width: 48%;
   }
 }
 @media (max-width: 768px) {
@@ -776,9 +784,6 @@ ul.nav.red-3 > li > a:hover.active {
   .navbar-nav > li > a {
     padding-bottom: 10px;
     padding-top: 10px;
-  }
-  .navbar-brand img {
-    width: 70%;
   }
 }
 
@@ -880,7 +885,7 @@ pre {
 }
 .dropdown-menu > li > a {
   clear: both;
-  color: #fff;
+  color: #000;
   display: block;
   font-weight: 400;
   line-height: 1.42857;
@@ -889,7 +894,7 @@ pre {
 }
 .dropdown-menu > li > a:focus,
 .dropdown-menu > li > a:hover {
-  color: #242424;
+  color: #f43819;
   background: none;
 }
 .navbar-collapse.pull-right {

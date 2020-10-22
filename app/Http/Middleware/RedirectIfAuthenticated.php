@@ -24,6 +24,12 @@ class RedirectIfAuthenticated
                 }
                 break;
 
+            case 'librarian':
+                if (Auth::guard($guard)->check()) {
+                    return redirect()->route('librarian.dashboard');
+                }
+                break;
+
             default:
                 if (Auth::guard($guard)->check()) {
                     return redirect('/home');

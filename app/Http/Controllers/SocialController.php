@@ -29,7 +29,7 @@ class SocialController extends Controller
                 'name'          => $userSocial->getName(),
                 'email'         => $userSocial->getEmail(),
                 'avatar'        => $userSocial->getAvatar(),
-                'unique_id'     => str_random(10),
+                'unique_id'     => rand(1000000000, 9999999999),
                 'provider_id'   => $userSocial->getId(),
                 'provider'      => $provider,
             ]);

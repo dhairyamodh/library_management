@@ -40,7 +40,7 @@
                     <div class="smart-forms smart-container wrap-3">
                         <div style="display: flex; justify-content:space-between; align-items:flex-end;">
                         <h3>Edit Profile</h3>
-                        <h5 style="padding:8px; border-radius:10px; background:#fd602c; color:#fff"><span>ID: </span>{{ Auth::user()->unique_id }}</h5>
+                        <h5 style="padding:8px;color:#fd602c"><span>ID: </span>{{ Auth::user()->unique_id }}</h5>
                     </div>
                         @if (session('success'))
                         <div class="alert alert-success">{{ session('success') }}</div>

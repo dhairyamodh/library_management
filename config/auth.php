@@ -50,6 +50,11 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+
+        'librarian' => [
+            'driver' => 'session',
+            'provider' => 'librarians',
+        ],
     ],
 
     /*
@@ -78,6 +83,11 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
+        ],
+
+        'librarians' => [
+            'driver' => 'eloquent',
+            'model' => App\Librarian::class,
         ],
 
         // 'users' => [
@@ -109,6 +119,11 @@ return [
         ],
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+        'librarians' => [
+            'provider' => 'librarians',
             'table' => 'password_resets',
             'expire' => 15,
         ],

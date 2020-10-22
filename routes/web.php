@@ -30,6 +30,17 @@ Route::prefix('admin')->group(function () {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login'); // admin login page
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit'); // admin login with backend
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout'); // admin logout
+
+    // librarian routes
+    Route::get('/librarians', 'Admin\AdminLibrariansController@index');
+});
+
+// Librarian Routes
+Route::prefix('librarian')->group(function () {
+    Route::get('/', 'LibrarianController@index')->name('librarian.dashboard');
+    Route::get('/login', 'Auth\LibrarianLoginController@showLoginForm')->name('librarian.login'); // librarian login page
+    Route::post('/login', 'Auth\LibrarianLoginController@login')->name('librarian.login.submit'); // librarian login with backend
+    Route::get('/logout', 'Auth\LibrarianLoginController@librarian_logout')->name('librarian.logout'); // librarian logout
 });
 
 

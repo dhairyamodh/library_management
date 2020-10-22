@@ -49,7 +49,7 @@
                             </a>
 
                             <!-- item-->
-                            <a href="{{ route('admin.logout') }}" class="dropdown-item notify-item">
+                            <a href="{{ route('librarian.logout') }}" class="dropdown-item notify-item">
                                 <i class="fe-log-out"></i>
                                 <span>Logout</span>
                             </a>
@@ -65,7 +65,7 @@
                     <a href="index.html" class="logo text-center">
                         <span class="logo-lg">
                             {{-- <img src="../assets/images/logo-light.png" alt="" height="16"> --}}
-                            <span class="logo-lg-text-light">Admin Panel</span>
+                            <span class="logo-lg-text-light">Librarian Panel</span>
                         </span>
                         <span class="logo-sm">
                             <span class="logo-sm-text-dark">AP</span>
@@ -103,12 +103,6 @@
                                 <a href="/admin">
                                     <i class="fe-airplay"></i>
                                     <span> Dashboard </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/admin/librarians">
-                                    <i class="fe-airplay"></i>
-                                    <span> Librarians </span>
                                 </a>
                             </li>
                         </ul>

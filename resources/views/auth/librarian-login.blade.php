@@ -23,12 +23,12 @@
                     <a href="index.html">
                         <span><img src="../images/logo-lg.png" alt="" height="50"></span>
                     </a>
-                    <h5 class="text-uppercase text-center font-bold mt-4">ADMIN SIGN IN</h5>
+                    <h5 class="text-uppercase text-center font-bold mt-4">LIBRARIAN SIGN IN</h5>
 
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.login.submit') }}">
+                    <form method="POST" action="{{ route('librarian.login.submit') }}">
                         {{ csrf_field() }}
                         @if (session('error'))
                     <div class="alert alert-danger {{ $errors->has('email') ? ' has-error' : '' }}">{{ session('error') }}</div>

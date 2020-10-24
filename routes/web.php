@@ -32,7 +32,11 @@ Route::prefix('admin')->group(function () {
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout'); // admin logout
 
     // librarian routes
-    Route::get('/librarians', 'Admin\AdminLibrariansController@index');
+    Route::get('/librarians', 'Admin\AdminLibrariansController@index'); // librarians list page
+    Route::post('/addLibrarian', 'Admin\AdminLibrariansController@save')->name('admin.addLibrarian'); // add librarian into database
+    Route::get('/editLibrarian', 'Admin\AdminLibrariansController@edit')->name('admin.editLibrarian'); // get perticular librarian data from database
+    Route::post('/updateLibrarian', 'Admin\AdminLibrariansController@update')->name('admin.updateLibrarian'); // update perticular librarian into database
+    Route::get('/deleteLibrarian', 'Admin\AdminLibrariansController@delete')->name('admin.deleteLibrarian'); // delete perticular librarian into database
 });
 
 // Librarian Routes
@@ -41,6 +45,9 @@ Route::prefix('librarian')->group(function () {
     Route::get('/login', 'Auth\LibrarianLoginController@showLoginForm')->name('librarian.login'); // librarian login page
     Route::post('/login', 'Auth\LibrarianLoginController@login')->name('librarian.login.submit'); // librarian login with backend
     Route::get('/logout', 'Auth\LibrarianLoginController@librarian_logout')->name('librarian.logout'); // librarian logout
+
+    // libraries routes
+    Route::get('/libraries', 'Librarian\LibrariesController@index'); // libraries list page
 });
 
 

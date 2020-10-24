@@ -24,7 +24,7 @@ class LibrarianLoginController extends Controller
             'password' => 'required|min:6'
         ]);
 
-        if (Auth::guard('librarian')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+        if (Auth::guard('librarian')->attempt(['email' => $request->email, 'password' => $request->password, 'librarian_status' => 'active'], $request->remember)) {
             return redirect()->intended(route('librarian.dashboard'));
         }
 

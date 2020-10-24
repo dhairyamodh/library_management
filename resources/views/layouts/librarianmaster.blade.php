@@ -100,9 +100,15 @@
                             <li class="menu-title">Navigation</li>
 
                             <li>
-                                <a href="/admin">
+                                <a href="/librarian">
                                     <i class="fe-airplay"></i>
                                     <span> Dashboard </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/libraries">
+                                    <i class="fe-airplay"></i>
+                                    <span>Libraries </span>
                                 </a>
                             </li>
                         </ul>

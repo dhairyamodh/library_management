@@ -168,7 +168,6 @@
                         }
                     });
                 } else {
-                    console.log(error_images)
                     return false;
                 }
             });

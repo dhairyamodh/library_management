@@ -1,7 +1,7 @@
 @extends('layouts.admin_login')
 
 @section('title')
-    Admin Panel | Login
+    Librarian Cpanel | Login
 @endsection
 
 

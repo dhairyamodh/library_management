@@ -22,6 +22,10 @@ Route::get('/home', function () {
     return view('welcome');
 });
 
+Route::get('/assignbook', 'Student\AssignBookController@index');
+Route::get('/getStudentData', 'Student\AssignBookController@getStudentData')->name('getStudentData');
+Route::get('/getStudentBook', 'Student\AssignBookController@getStudentBook')->name('getStudentBook');
+
 Auth::routes();
 
 // Admin Routes
@@ -46,8 +50,12 @@ Route::prefix('librarian')->group(function () {
     Route::post('/login', 'Auth\LibrarianLoginController@login')->name('librarian.login.submit'); // librarian login with backend
     Route::get('/logout', 'Auth\LibrarianLoginController@librarian_logout')->name('librarian.logout'); // librarian logout
 
-    // libraries routes
-    Route::get('/libraries', 'Librarian\LibrariesController@index'); // libraries list page
+    // books routes
+    Route::get('/books', 'Librarian\BooksController@index'); // books list page
+    Route::post('/addBooks', 'Librarian\BooksController@save')->name('librarian.addBook'); // add books into database
+    Route::get('/editBooks', 'Librarian\BooksController@edit')->name('librarian.editBook'); // get perticular book data from database
+    Route::post('/updateBooks', 'Librarian\BooksController@update')->name('librarian.updateBook'); // update perticular book into database
+    Route::get('/deleteBooks', 'Librarian\BooksController@delete')->name('librarian.deleteBook'); // delete perticular book from database
 });
 
 

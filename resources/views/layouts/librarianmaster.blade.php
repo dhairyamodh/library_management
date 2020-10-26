@@ -106,9 +106,9 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/libraries">
+                                <a href="/librarian/books">
                                     <i class="fe-airplay"></i>
-                                    <span>Libraries </span>
+                                    <span>Books </span>
                                 </a>
                             </li>
                         </ul>

@@ -1,7 +1,7 @@
 @extends('layouts.librarianmaster')
 
 @section('title')
-Dashboard | Admin Panel
+Dashboard | Librarian CPanel
 @endsection
 
 @section('links')

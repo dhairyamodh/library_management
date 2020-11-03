@@ -26,6 +26,14 @@ Route::get('/assignbook', 'Student\AssignBookController@index');
 Route::get('/getStudentData', 'Student\AssignBookController@getStudentData')->name('getStudentData');
 Route::get('/getStudentBook', 'Student\AssignBookController@getStudentBook')->name('getStudentBook');
 
+Route::get('/getBookData', 'Student\AssignBookController@getBookData')->name('getBookData');
+
+Route::post('/addBooks', 'Student\AssignBookController@addBooks')->name('addBooks');
+
+Route::get('/deleteBook', 'Student\AssignBookController@deleteBook')->name('deleteBook');
+
+
+
 Auth::routes();
 
 // Admin Routes
@@ -71,3 +79,6 @@ Route::post('/change-avatar/{id}', 'ProfileContoller@changeAvatar'); // change p
 Route::get('login/{provider}', 'SocialController@redirect');
 Route::get('login/{provider}/callback', 'SocialController@Callback');
 Route::get('login/twitter/callback', 'SocialController@TwitterCallback');
+
+// book history routes
+Route::get('/book-history', 'Student\BookHistoryController@index');

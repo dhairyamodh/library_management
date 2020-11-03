@@ -2637,6 +2637,9 @@ a.read-more.cyan:hover {
   float: right;
   padding: 0px;
   margin: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .toplist li {
   float: left;

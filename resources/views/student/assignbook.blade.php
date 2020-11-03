@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Library Management | Home
+    Library Management | Assign Book
 @endsection
 
 
@@ -11,6 +11,7 @@
 <!-- jQuery UI library -->
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" /> --}}
 <style>
   .search .results {
     position: absolute;
@@ -20,29 +21,19 @@
     z-index: 10;
     padding: 0;
     margin: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: auto;
     min-height: auto;
     max-height: 200px;
     border-width: 1px;
     border-style: solid;
     border-color: #e4e4e4;
     background-color: #fdfdfd;
-   
-    -webkit-box-shadow:  24px 20px 65px -34px rgba(0,0,0,0.68);
-    -moz-box-shadow:  24px 20px 65px -34px rgba(0,0,0,0.68);
-    -ms-box-shadow:  24px 20px 65px -34px rgba(0,0,0,0.68);
-    -o-box-shadow:  24px 20px 65px -34px rgba(0,0,0,0.68);
-    box-shadow:  24px 20px 65px -34px rgba(0,0,0,0.68);
+    flex-grow: 1;
 }
 
 
-.search .results li:first-child { margin-top: -1px }
-
-
-.search .results li:last-child { margin-bottom: -1px }
-
 .search .results li {
+  width: 100%;
     display: block;
     position: relative;
     margin: 0 -1px;
@@ -79,6 +70,101 @@
     background-color: #fd602c;
 }
 
+#ui-datepicker-div {
+	display: none;
+	background-color: #fff;
+	box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.1);
+	margin-top: 0.25rem;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active{
+  width: 2.7em;
+  height: 2.7em;
+  border-color:#e4e4e4;
+  background: none;
+}
+.ui-datepicker-calendar thead th {
+	padding: 0.25rem 0;
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: 400;
+	color: #78909C;
+}
+.ui-datepicker-calendar tbody td {
+	width: 2.5rem;
+	text-align: center;
+	padding: 0;
+}
+.ui-datepicker-calendar tbody td a {
+	display: block;
+	border-radius: 0.25rem;
+	line-height: 2rem;
+	transition: 0.3s all;
+	color: #546E7A;
+	font-size: 1.3rem;
+	text-decoration: none;
+}
+.ui-datepicker-calendar tbody td a:hover {	
+  background-color: #fd602c;
+  color: #fff;
+}
+.ui-datepicker-calendar tbody td a.ui-state-active {
+	background-color: #fd602c;
+	color: white;
+}
+.ui-datepicker-calendar tbody td a.ui-state-highlight{
+  background-color: #e4e4e4;
+}
+.ui-datepicker-header a.ui-corner-all {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	width: 2rem;
+	height: 2rem;
+	margin: 0.5rem;
+	border-radius: 0.25rem;
+	transition: 0.3s all;
+}
+.ui-datepicker-header a.ui-corner-all:hover {
+	background-color: #ECEFF1;
+}
+.ui-datepicker-header a.ui-datepicker-prev {	
+	left: 0;	
+	background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==");
+	background-repeat: no-repeat;
+	background-size: 0.5rem;
+	background-position: 50%;
+	transform: rotate(180deg);
+}
+.ui-datepicker-header a.ui-datepicker-next {
+	right: 0;
+	background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==');
+	background-repeat: no-repeat;
+	background-size: 10px;
+	background-position: 50%;
+}
+.ui-datepicker-header a>span {
+	display: none;
+}
+.ui-datepicker-title {
+	text-align: center;
+	line-height: 2rem;
+	margin-bottom: 0.25rem;
+	font-size: 1.5rem;
+	font-weight: 600;
+	padding-bottom: 0.25rem;
+}
+.ui-datepicker-week-col {
+	color: #78909C;
+	font-weight: 400;
+	font-size: 0.75rem;
+}
+
 
 </style>
 @endsection
@@ -105,43 +191,61 @@
   
   <section class="sec-padding" style="padding-bottom: 0">
     <div class="container">
+      <form class="parsley-examples" method="post" action="javascript:void()" id="addBooks_form" token="{{ csrf_token() }}">
           <div class="text-box padding-3"  style="padding-left: 0; padding-right:0">
             <div class="smart-forms smart-container wrap-3">
-
               <div class="frm-row">
                 <div class="section colm colm6">
                   <div class="search">
                     <label for="names" class="field-label">Student ID</label>
                     <label class="field prepend-icon">
-                      <input id="user_id" type="text" name="user_id" class="gui-input" placeholder="Enter Student ID">
+                      <input id="user_id" type="text" name="user_id" class="gui-input" required placeholder="Enter Student ID">
                       <span class="field-icon"><i class="fa fa-user"></i></span>
                       <div id="student_data"></div>
                     </label>
                   </div><!-- end section -->
+                  
               </div>
-                  <div class="section colm colm6">
-                    <label for="names" class="field-label">Book ID</label>
-                      
-                    <label class="field prepend-icon">
-                      <input id="email" type="email" name="email" required class="gui-input" placeholder="Enter Book ID">
-                      <span class="field-icon"><i class="fa fa-user"></i></span>
-                    </label>
-                  </div><!-- end section -->
+              <div class="section colm colm4">
+                <label for="names" class="field-label">&nbsp;</label>
+                <button type="button" class="button btn-primary assignbook">Assign Books</button>
               </div>
+              </div>
+              <div class="frm-row" id="assignbook" style="display: none">
+                <h5 class="text-orange-2" style="padding-left: 10px;">Assign Books to Student</h5>
+                <hr>
+                <div class="section colm colm4">
+                  <div class="search">
+                  <label for="names" class="field-label">Book ID</label>
+                    
+                  <label class="field prepend-icon">
+                    <input id="book_id" type="text" name="book_id" required class="gui-input" placeholder="Enter Book ID">
+                    <span class="field-icon"><i class="fa fa-book"></i></span>
+                    <div id="book_data"></div>
+                  </label>
+                  </div>
+                </div><!-- end section -->
+                <div class="section colm colm4">
+                  <label for="names" class="field-label">Return Date</label>
+                  <label class="field prepend-icon">
+                    <input class="gui-input date" name="return_date" required id="datepicker" type="text" readonly placeholder="Choose Return Date">
+                    <span class="field-icon"><i class="fa fa-calendar"></i></span>
+                  </label>
+                    
+                  
+                </div><!-- end section -->
+                <div class="section colm colm4">
+                  <label for="names" class="field-label">&nbsp;</label>
+                  <button type="submit" class="button btn-primary addbook">Add Books</button>
+                </div>
+              </div>
+            </form>
 
                   </div><!-- end .form-body section -->
 
-
       </div>
-    </div>
-  </section>
-      <!--end item-->
-
-
- <section class="sec-padding" style="padding-top: 0">
-    <div class="container">
       <div class="row">
-        <div class="domain-pricing-table-holder">
+        <div class="domain-pricing-table-holder" style="padding: 10px;background-color:transparent;">
           <table class="table-style-2">
             <thead>
               <tr>
@@ -156,7 +260,7 @@
             </thead>
             <tbody>
               <tr>
-                <td colspan="7">No data available</td>
+                <td colspan="7">No Data Available</td>
               </tr>
             </tbody>
           </table>
@@ -164,13 +268,17 @@
       </div>
     </div>
   </section>
+      <!--end item-->
+
   <!-- end section -->
   
 
              
 @endsection
 @section('scripts')
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
   $(document).ready(()=>{
     $('#user_id').keyup(function(){
@@ -180,7 +288,7 @@
         method:'GET',
         data:{user_id:val},
         success:function(data){
-          $('#student_data').html(data);
+            $('#student_data').html(data);
         },
       })
       
@@ -188,8 +296,12 @@
 
     $('body').on('click','.unique_id',function(){
       var uniqid = $(this).attr('id');
-      $('.results').html('');
+      $('#student_data').html('');
       $('#user_id').val($(this).children().text());
+      getBookData(uniqid);
+    })
+
+    function getBookData(uniqid){
       $.ajax({
         url:"{{ route('getStudentBook') }}",
         method:'GET',
@@ -198,8 +310,96 @@
           $('tbody').html(data);
         },
       })
-    })
+    }
+
+    $('.assignbook').click(function(){
+      $('#assignbook').css('display','block');
+    });
+    $( "#datepicker" ).datepicker({
+		dateFormat: "dd-mm-yy"
+		,	duration: "fast",
+    minDate: 0
+	});
+    $('#book_id').keyup(function(){
+      var val = $(this).val();
+      $.ajax({
+        url:"{{ route('getBookData') }}",
+        method:'GET',
+        data:{book_id:val},
+        success:function(data){
+            $('#book_data').html(data);
+        },
+      })
+      
+    });
+
+    $('body').on('click','.book_id',function(){
+      var uniqid = $(this).attr('id');
+      $('#book_data').html('');
+      $('#book_id').val($(this).children().text());
+    });
+
+    $('#addBooks_form').submit(function(e){
+      e.preventDefault();
+                var form_data = new FormData($(this)[0]);
+                form_data.append('_token', $(this).attr('token'));
+                console.log(form_data);
+                $.ajax({
+                        url: "{{ route('addBooks') }}",
+                        method: "POST",
+                        dataType:"json",
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        data: form_data,
+                        success: function(response, status, jqXHR) {
+                           
+
+                            if (response.status == 'success') {
+                                swal({
+                                    title: response.title,
+                                    text: response.msg,
+                                    icon: response.status
+                                }).then(() => {
+                                  var uniqid = $('#user_id').val();
+                                  getBookData(uniqid);
+                                  $('#book_id').val('');
+                                  $('input[name="return_date"]').val('');
+                            })
+                            
+                                
+                            } else{
+                                swal({
+                                    title: response.title,
+                                    text: response.msg,
+                                    icon: response.status
+                                })
+                            }
+                        },
+                        error: function(jqXHR, status, err) {
+                            swal({
+                                    title: 'Error',
+                                    text: err,
+                                    icon: status
+                                })
+                        }
+                    })
+    });
+    $('body').on('click','.delete_book',function(){
+      var book_id = $(this).attr('book_id');
+      $.ajax({
+        url:"{{ route('deleteBook') }}",
+        method:'GET',
+        data:{book_id:book_id},
+        success:function(data){
+          var uniqid = $('#user_id').val();
+          getBookData(uniqid);
+        },
+      })
+    });
+    
   })
+
 </script>
 
 @endsection

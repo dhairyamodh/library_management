@@ -23,7 +23,7 @@ class BooksController extends Controller
     {
         $books = new Books;
 
-        $books->book_id = rand(1000000000, 9999999999);
+        $books->book_unique_id = rand(1000000000, 9999999999);
         $books->book_name = $request->get('name');
         $books->book_inr_no = $request->get('inr_no');
         $books->book_rfid = $request->get('rfid_no');

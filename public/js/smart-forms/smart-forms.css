@@ -2201,7 +2201,7 @@ body {
 .ui-datepicker-today a:hover,
 .ui-datepicker .ui-state-highlight {
   font-weight: 700;
-  background: #fd602c !important;
+  background: #fd602c;
   color: #fff;
 }
 

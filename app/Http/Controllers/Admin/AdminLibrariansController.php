@@ -30,7 +30,7 @@ class AdminLibrariansController extends Controller
                 'name' => 'required|string',
                 'email' => 'required|email',
                 'password' => 'required'
-            ],
+            ]
         );
         if ($validator->fails()) {
             $response = $validator->messages();

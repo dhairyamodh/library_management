@@ -231,7 +231,7 @@ if (input.attr("type") == "password") {
                 var form_data = new FormData($(this)[0]);
                 var token = $(this).attr('token');
                 form_data.append('_token', token);
-                console.log(form_data);
+                
                 $.ajax({
                         url: "{{ route('admin.addLibrarian') }}",
                         method: "POST",

@@ -61,9 +61,12 @@
         <div class="topbar-right-items pull-right">
           <ul class="toplist toppadding">
             @if (Auth::guest())
-           
-              <li><a class="topbar-btn {{ 'login' == request()->path() ? 'active' : ''}}" href="{{ route('login') }}"> Login</a></li>
-              <li><a class="topbar-btn {{ 'register' == request()->path() ? 'active' : ''}}" href="{{ route('register') }}"> Register</a></li>
+            <li><a href="https://www.facebook.com/codelayers"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/codelayers"><i class="fa fa-twitter"></i></a></li>
+
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a class="topbar-btn {{ 'login' == request()->path() ? 'active' : ''}}" href="{{ route('login') }}"><i class="fa fa-power-off"></i>&nbsp; Login</a></li>
+              <li><a class="topbar-btn {{ 'register' == request()->path() ? 'active' : ''}}" href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; Register</a></li>
             @else
             <li><a href="https://www.facebook.com/codelayers"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="https://twitter.com/codelayers"><i class="fa fa-twitter"></i></a></li>
@@ -99,6 +102,7 @@
               <li class="dropdown {{ 'profile' == request()->path() ? 'active' : ''}}"><a href="#">{{ Auth::user()->name }}</a>
                 <ul class="dropdown-menu" role="menu">
                     <li class="{{ 'profile' == request()->path() ? 'active' : ''}}"><a href="/profile"> Profile</a> </li>
+                    <li class="{{ 'book-history' == request()->path() ? 'active' : ''}}"><a href="/book-history"> My Book History</a> </li>
                     <li><a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">Logout</a> 

@@ -22,6 +22,10 @@ Route::get('/home', function () {
     return view('welcome');
 });
 
+Route::get('/service', function () {
+    return view('service');
+});
+
 Route::get('/assignbook', 'Student\AssignBookController@index');
 Route::get('/getStudentData', 'Student\AssignBookController@getStudentData')->name('getStudentData');
 Route::get('/getStudentBook', 'Student\AssignBookController@getStudentBook')->name('getStudentBook');
@@ -32,6 +36,11 @@ Route::post('/addBooks', 'Student\AssignBookController@addBooks')->name('addBook
 
 Route::get('/deleteBook', 'Student\AssignBookController@deleteBook')->name('deleteBook');
 
+Route::get('/bookInvoice', 'Student\AssignBookController@generateInvoice')->name('generateInvoice');
+
+// contact us routes
+Route::get('/contact-us', 'ContactController@index');
+Route::post('/send-contact', 'ContactController@send_contact')->name('send_contact');
 
 
 Auth::routes();
@@ -82,3 +91,7 @@ Route::get('login/twitter/callback', 'SocialController@TwitterCallback');
 
 // book history routes
 Route::get('/book-history', 'Student\BookHistoryController@index');
+
+// book invoice routes
+Route::get('/view-invoice/{id}', 'Student\InvoiceBooksController@index');
+Route::post('/share-invoice', 'Student\InvoiceBooksController@share_invoice')->name('shareInvoice');

@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'mail.flemingproject.flemingdomains.ca'),
+    'host' => env('MAIL_HOST', 'mail.library.flemingdomains.ca'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'checklibrary@flemingproject.flemingdomains.ca'),
+        'address' => env('MAIL_FROM_ADDRESS', 'checklibrary@library.flemingdomains.ca'),
         'name' => env('MAIL_FROM_NAME', 'Library Self Checkout'),
     ],
 
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
 
     /*
     |--------------------------------------------------------------------------

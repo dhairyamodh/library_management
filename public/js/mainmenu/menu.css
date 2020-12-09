@@ -26,12 +26,12 @@
 /* =========== Menu ============= */
 
 .navbar-brand {
-  width: 60%;
+  width: auto;
   float: left;
   font-size: 18px;
 }
 .navbar-brand img {
-  width: 50%;
+  width: 30%;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:focus,
@@ -771,7 +771,7 @@ ul.nav.red-3 > li > a:hover.active {
   }
   .navbar-brand img {
     margin-left: 15px;
-    width: 48%;
+    width: 35%;
   }
 }
 @media (max-width: 768px) {

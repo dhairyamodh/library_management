@@ -225,7 +225,41 @@
     </div>
     <!-- end slide 3 -->
   </div>
+  <section class="sec-padding">
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  
+		  <div class="tabs-content1">
+			<div id="example-1-tab-1" class="tabs-panel1">
+			  <div class="col-md-12 padding-left-3">
+				<h3>The aim of Self-Checkout System  is to automate the process to check-out a book from any library to improve efficiency over traditional
+					library check-out systems.	</h3>
+					<h5>How the current Self-Checkout system simplifies the conventional process of checking out the books:</h5>
 
+				<br/>
+				<ul class="iconlist orange">
+					
+						  <li>In traditional library check-out systems, people have to stand in a queue to check-out their books along with their
+							library card.</li>
+							<li>When their turn comes, the librarian scans the books, then scans their library card and gives them a receipt with the
+								cost and return date.</li>
+								<li>We are designing and developing a self-checkout system to improve efficiency over the current process.</li>
+								<li>The system will scan RFID tags attached to the books and allow users to check-out with their accounts which they
+									can setup on our website.</li>
+					  </ul>
+					  
+				  
+			</div>
+			<!-- end tab 1 -->
+			
+			<!-- end tab 4 --> 
+		  </div>
+		  <!-- end all tabs --> 
+		</div>
+	  </div>
+	</div>
+  </section>
              
 @endsection
 @section('scripts')

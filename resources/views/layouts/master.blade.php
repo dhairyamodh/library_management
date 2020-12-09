@@ -7,112 +7,130 @@
 <html lang="en">
 
 <head>
-  <title>@yield('title')</title>
-  <meta charset="utf-8">
-  <!-- Meta -->
-  <meta name="keywords" content="" />
-  <meta name="author" content="">
-  <meta name="robots" content="" />
-  <meta name="description" content="" />
+    <title>@yield('title')</title>
+    <meta charset="utf-8">
+    <!-- Meta -->
+    <meta name="keywords" content="" />
+    <meta name="author" content="">
+    <meta name="robots" content="" />
+    <meta name="description" content="" />
 
-  <!-- this styles only adds some repairs on idevices  -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- this styles only adds some repairs on idevices  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="images/favicon.ico">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../images/favicon.ico">
 
-  <!-- Google fonts - witch you want to use - (rest you can just remove) -->
-  <link
-    href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic'
-    rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet'
-    type='text/css'>
+    <!-- Google fonts - witch you want to use - (rest you can just remove) -->
+    <link
+        href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic'
+        rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet'
+        type='text/css'>
 
-  <!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-  <!-- stylesheets -->
-  <link rel="stylesheet" media="screen" href="../../js/bootstrap/bootstrap.min.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../js/mainmenu/menu.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/layouts.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/shortcodes.css" type="text/css" />
-  <link rel="stylesheet" media="screen" href="../../css/responsive-leyouts.css" type="text/css" />
-  <link rel="stylesheet" type="text/css" href="../../css/Simple-Line-Icons-Webfont/simple-line-icons.css" media="screen" />
-  <link rel="stylesheet" href="../../css/et-line-font/et-line-font.css">
-  <link rel="stylesheet" type="text/css" href="../../js/smart-forms/smart-forms.css">
-  @yield('links')
+    <!-- stylesheets -->
+    <link rel="stylesheet" media="screen" href="../../js/bootstrap/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../js/mainmenu/menu.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/layouts.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/shortcodes.css" type="text/css" />
+    <link rel="stylesheet" media="screen" href="../../css/responsive-leyouts.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../css/Simple-Line-Icons-Webfont/simple-line-icons.css"
+        media="screen" />
+    <link rel="stylesheet" href="../../css/et-line-font/et-line-font.css">
+    <link rel="stylesheet" type="text/css" href="../../js/smart-forms/smart-forms.css">
+    @yield('links')
 
 </head>
 
 <body>
-  <div class="site_wrapper">
-    <div class="topbar orange2  topbar-padding">
-      <div class="container">
-        <div class="topbar-left-items">
-          <ul class="toplist toppadding pull-left paddtop1">
-            <!-- <li class="rightl">Customer Care</li>
+    <div class="site_wrapper">
+        <div class="topbar orange2  topbar-padding">
+            <div class="container">
+                <div class="topbar-left-items">
+                    <ul class="toplist toppadding pull-left paddtop1">
+                        <!-- <li class="rightl">Customer Care</li>
                 <li>(888) 123-4567</li> -->
-          </ul>
-        </div>
-        <!--end left-->
+                    </ul>
+                </div>
+                <!--end left-->
 
-        <div class="topbar-right-items pull-right">
-          <ul class="toplist toppadding">
-            @if (Auth::guest())
-            <li><a href="https://www.facebook.com/codelayers"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="https://twitter.com/codelayers"><i class="fa fa-twitter"></i></a></li>
+                <div class="topbar-right-items pull-right">
+                    <ul class="toplist toppadding">
+                        @if (Auth::guest())
+                            <li><a href="https://www.facebook.com/codelayers"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://twitter.com/codelayers"><i class="fa fa-twitter"></i></a></li>
 
-            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a class="topbar-btn {{ 'login' == request()->path() ? 'active' : ''}}" href="{{ route('login') }}"><i class="fa fa-power-off"></i>&nbsp; Login</a></li>
-              <li><a class="topbar-btn {{ 'register' == request()->path() ? 'active' : ''}}" href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp; Register</a></li>
-            @else
-            <li><a href="https://www.facebook.com/codelayers"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="https://twitter.com/codelayers"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a class="topbar-btn {{ 'login' == request()->path() ? 'active' : '' }}"
+                                    href="{{ route('login') }}"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Login</a>
+                            </li>
+                            <li><a class="topbar-btn {{ 'register' == request()->path() ? 'active' : '' }}"
+                                    href="{{ route('register') }}"><i class="fa fa-user"></i>&nbsp;&nbsp;Register</a>
+                            </li>
+                        @else
+                            <li><a href="https://www.facebook.com/codelayers"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://twitter.com/codelayers"><i class="fa fa-twitter"></i></a></li>
 
-                <li class="last"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-        @endif
-            
-            <!-- <li><a href="https://www.facebook.com/codelayers"><i class="fa fa-facebook"></i></a></li>
+                            <li class="last"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        @endif
+
+                        <!-- <li><a href="https://www.facebook.com/codelayers"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="https://twitter.com/codelayers"><i class="fa fa-twitter"></i></a></li>
 
                 <li class="last"><a href="#"><i class="fa fa-linkedin"></i></a></li> -->
-          </ul>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="clearfix"></div>
+        <div class="clearfix"></div>
 
-    <div id="header">
-      <div class="container">
-        <div class="navbar navbar-default yamm">
-          <div class="navbar-header">
-            <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid"
-              class="navbar-toggle two three"><span class="icon-bar"></span><span class="icon-bar"></span><span
-                class="icon-bar"></span></button>
-            <a href="/" class="navbar-brand" style="padding: 5px"><img src="images/logo.png" alt="" /></a> </div>
-          <div id="navbar-collapse-grid" class="navbar-collapse collapse pull-right">
-            <ul class="nav navbar-nav">
-              <li class="dropdown {{ '/' == request()->path() || 'home' == request()->path() ? 'active' : ''}}"> <a href="/">Home</a></li>
-              <li class="dropdown {{ 'about-us' == request()->path() ? 'active' : ''}}"><a href="/about-us">About Us</a></li>
-              <li class="dropdown {{ 'service' == request()->path() ? 'active' : ''}}"><a href="/service">Service</a></li>
-              <li class="dropdown {{ 'contact-us' == request()->path() ? 'active' : ''}}"><a href="/contact-us">Contact US</a></li>
-              @if (!Auth::guest())
-              <li class="dropdown {{ 'profile' == request()->path() ? 'active' : ''}}"><a href="#">{{ Auth::user()->name }}</a>
-                <ul class="dropdown-menu" role="menu">
-                    <li class="{{ 'profile' == request()->path() ? 'active' : ''}}"><a href="/profile"> Profile</a> </li>
-                    <li class="{{ 'book-history' == request()->path() ? 'active' : ''}}"><a href="/book-history"> My Book History</a> </li>
-                    <li><a href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">Logout</a> 
-                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form></li>
-                  </ul>
-            </li>
-              @endif
-              <!-- <li class="dropdown yamm-fw"><a href="index5.html" class="dropdown-toggle">Layouts</a>
+        <div id="header">
+            <div class="container">
+                <div class="navbar navbar-default yamm">
+                    <div class="navbar-header" style="display: flex;justify-content:space-between; align-items:center">
+
+                        <a href="/" class="navbar-brand" style="padding: 5px"><img src="../../images/logo.png"
+                                alt="" /></a>
+                        <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid"
+                            class="navbar-toggle two three"><span class="icon-bar"></span><span
+                                class="icon-bar"></span><span class="icon-bar"></span></button>
+                    </div>
+                    <div id="navbar-collapse-grid" class="navbar-collapse collapse pull-right">
+                        <ul class="nav navbar-nav">
+                            <li
+                                class="dropdown {{ '/' == request()->path() || 'home' == request()->path() ? 'active' : '' }}">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="dropdown {{ 'about-us' == request()->path() ? 'active' : '' }}"><a
+                                    href="/about-us">About Us</a></li>
+                            <li class="dropdown {{ 'service' == request()->path() ? 'active' : '' }}"><a
+                                    href="/service">Service</a></li>
+                            <li class="dropdown {{ 'contact-us' == request()->path() ? 'active' : '' }}"><a
+                                    href="/contact-us">Contact US</a></li>
+                            @if (!Auth::guest())
+                                <li class="dropdown {{ 'profile' == request()->path() ? 'active' : '' }}"><a
+                                        href="#">{{ Auth::user()->name }}</a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li class="{{ 'profile' == request()->path() ? 'active' : '' }}"><a
+                                                href="/profile"> Profile</a> </li>
+                                        <li class="{{ 'book-history' == request()->path() ? 'active' : '' }}"><a
+                                                href="/book-history"> My Book History</a> </li>
+                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">Logout</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @endif
+                            <!-- <li class="dropdown yamm-fw"><a href="index5.html" class="dropdown-toggle">Layouts</a>
               <ul class="dropdown-menu">
                 <li class="grid-demo">
                   <div class="row">
@@ -198,7 +216,7 @@
                 </li>
               </ul>
             </li> -->
-              <!-- <li class="dropdown yamm-fw"> <a href="about2.html" class="dropdown-toggle">Pages</a>
+                            <!-- <li class="dropdown yamm-fw"> <a href="about2.html" class="dropdown-toggle">Pages</a>
               <ul class="dropdown-menu">
                 <li>
                   <div class="yamm-content">
@@ -259,7 +277,7 @@
                 </li>
               </ul>
             </li> -->
-              <!-- <li class="dropdown yamm-fw"> <a href="message-boxes.html" class="dropdown-toggle">Features</a>
+                            <!-- <li class="dropdown yamm-fw"> <a href="message-boxes.html" class="dropdown-toggle">Features</a>
               <ul class="dropdown-menu">
                 <li>
                   <div class="yamm-content">
@@ -335,7 +353,7 @@
                 </li>
               </ul>
             </li> -->
-              <!-- <li class="dropdown"> <a href="portfolio-three.html" class="dropdown-toggle">Portfolio</a>
+                            <!-- <li class="dropdown"> <a href="portfolio-three.html" class="dropdown-toggle">Portfolio</a>
               <ul class="dropdown-menu" role="menu">
                 <li> <a href="portfolio-one.html">Single Item</a> </li>
                 <li> <a href="portfolio-two.html">Portfolio Columns 2</a> </li>
@@ -355,7 +373,7 @@
                 </li>
               </ul>
             </li> -->
-              <!-- <li class="dropdown yamm-fw"> <a href="message-boxes.html" class="dropdown-toggle">Shortcodes</a>
+                            <!-- <li class="dropdown yamm-fw"> <a href="message-boxes.html" class="dropdown-toggle">Shortcodes</a>
               <ul class="dropdown-menu">
                 <li>
                   <div class="yamm-content">
@@ -408,7 +426,7 @@
                 </li>
               </ul>
             </li> -->
-              <!-- <li class="dropdown"> <a href="blog.html" class="dropdown-toggle">Blog</a>
+                            <!-- <li class="dropdown"> <a href="blog.html" class="dropdown-toggle">Blog</a>
               <ul class="dropdown-menu three" role="menu">
                 <li> <a href="blog.html">Blog Full Width</a> </li>
                 <li> <a href="blog2.html">Blog 3Columns</a> </li>
@@ -416,44 +434,45 @@
                 <li> <a href="blog-post.html">Single Post</a> </li>
               </ul>
             </li> -->
-              <!-- <li class="dropdown"> <a href="contact.html" class="dropdown-toggle align-1">Contact</a>
+                            <!-- <li class="dropdown"> <a href="contact.html" class="dropdown-toggle align-1">Contact</a>
               <ul class="dropdown-menu align-1 two" role="menu">
                 <li> <a href="contact.html">Contact Variation 1</a> </li>
                 <li> <a href="contact2.html">Contact Variation 2</a> </li>
                 <li> <a href="contact3.html">Contact Variation 3</a> </li>
               </ul>
             </li> -->
-            </ul>
-          </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+        <!--end menu-->
+        <div class="clearfix"></div>
+
+        @yield('content')
+        <!--end item -->
+        <div class="clearfix"></div>
+
+        <!--end section-->
+
+        <div class="clearfix"></div>
+        <a href="#" class="scrollup"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+        <!-- end scroll to top of the page-->
+
     </div>
-    <!--end menu-->
-    <div class="clearfix"></div>
+    <!--end sitewraper-->
 
-    @yield('content')
-    <!--end item -->
-    <div class="clearfix"></div>
+    <!-- ========== Js Files ========== -->
 
-    <!--end section-->
-
-    <div class="clearfix"></div>
-    <a href="#" class="scrollup"></a><!-- end scroll to top of the page-->
-
-  </div>
-  <!--end sitewraper-->
-
-  <!-- ========== Js Files ========== -->
-
-  <script type="text/javascript" src="../../js/universal/jquery.js"></script>
-  <script src="../../js/bootstrap/bootstrap.min.js" type="text/javascript"></script>
-  <script src="../../js/mainmenu/customeUI.js"></script>
-  <script src="../../js/mainmenu/jquery.sticky.js"></script>
-  <script src="../../js/scrolltotop/totop.js"></script>
-  <script type="text/javascript" src="../../js/cubeportfolio/jquery.cubeportfolio.min.js"></script>
-  <script type="text/javascript" src="../../js/cubeportfolio/main.js"></script>
-  <script src="../../js/scripts/functions.js" type="text/javascript"></script>
-  @yield('scripts')
+    <script type="text/javascript" src="../../js/universal/jquery.js"></script>
+    <script src="../../js/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../js/mainmenu/customeUI.js"></script>
+    <script src="../../js/mainmenu/jquery.sticky.js"></script>
+    <script src="../../js/scrolltotop/totop.js"></script>
+    <script type="text/javascript" src="../../js/cubeportfolio/jquery.cubeportfolio.min.js"></script>
+    <script type="text/javascript" src="../../js/cubeportfolio/main.js"></script>
+    <script src="../../js/scripts/functions.js" type="text/javascript"></script>
+    @yield('scripts')
 
 </body>
 
